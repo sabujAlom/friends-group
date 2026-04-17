@@ -4,6 +4,8 @@ import { Link } from "react-router";
 
 const BookCard = ({ book }) => {
   return (
+    <div>
+
     <Link to={`/bookDetails/${book.id}`} className="card bg-base-100 shadow-lg">
       <figure className="p-6 bg-base-200">
         <img
@@ -35,6 +37,8 @@ const BookCard = ({ book }) => {
         </div>
       </div>
     </Link>
+    </div>
+    
   );
 };
 

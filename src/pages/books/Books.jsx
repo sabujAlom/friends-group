@@ -19,20 +19,18 @@ const Books = () => {
             tabIndex="-1"
             className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
           >
-            <li onClick={()=>{setSortingType('pages')}}>
-              <a>Pages</a>
+            <li onClick={()=>{setSortingType('goal')}}>
+              <a>Goal</a>
             </li>
-            <li onClick={()=>{setSortingType('rating')}}>
-              <a>Rating</a>
-            </li>
+            
           </ul>
         </div>
       </div>
 
       <Tabs>
         <TabList>
-          <Tab>Read List</Tab>
-          <Tab>Wish List</Tab>
+          <Tab>Friend list</Tab>
+          
         </TabList>
 
         <TabPanel>
@@ -40,11 +38,7 @@ const Books = () => {
             <ListedReadList sortingType={sortingType} />{" "}
           </h2>
         </TabPanel>
-        <TabPanel>
-          <h2>
-            <ListedWishList sortingType={sortingType}/>
-          </h2>
-        </TabPanel>
+        
       </Tabs>
     </div>
   );

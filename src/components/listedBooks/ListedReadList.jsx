@@ -9,14 +9,11 @@ const ListedReadList = ({ sortingType }) => {
 
   useEffect(() => {
     if (sortingType) {
-      if (sortingType === "pages") {
-        const sortedData = [...readList].sort((a, b) => a.totalPages - b.totalPages);
+      if (sortingType === "goal") {
+        const sortedData = [...readList].sort((a, b) => a.goal - b.goal);
         setFilteredReadList(sortedData);
 
-      } else if (sortingType === "rating") {
-        const sortedData = [...readList].sort((a, b) => a.rating - b.rating);
-        setFilteredReadList(sortedData);
-      }
+      } 
     }
   }, [sortingType, readList]);
 

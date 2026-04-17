@@ -3,53 +3,45 @@
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { BookContext } from "../../context/BookContext";
-import { MdAutoDelete, MdOutlineSnooze, MdOutlineTextsms } from "react-icons/md";
-import { FaFileArchive } from "react-icons/fa";
 import { IoVideocamOutline } from "react-icons/io5";
+import {
+  MdAutoDelete,
+  MdOutlineSnooze,
+  MdOutlineTextsms,
+} from "react-icons/md";
 import { BsTelephonePlus } from "react-icons/bs";
-
-// const booksPromise = fetch("/booksData.json").then((res) => res.json());
+import { FaFileArchive } from "react-icons/fa";
 
 const BookDetails = () => {
-  const { id:bookParamsId } = useParams();
-  // console.log(bookId, "bookId")
+  const { id: bookParamsId } = useParams();
 
-  // const books = use(booksPromise);
   const books = useLoaderData();
   // console.log("books", bookId);
-  const expectedBook = books?.find(
-    (book) => book.id === Number(bookParamsId),
-  );
+  const expectedBook = books?.find((book) => book.id === Number(bookParamsId));
   const {
     id,
     name,
-    
     picture,
     email,
     days_since_contact,
-    
+
     status,
     tags,
     bio,
     goal,
     next_due_date,
-    
   } = expectedBook;
   //   console.log(expectedBook);
-  
-const {handleMarkAsRead, handleWishList} = useContext(BookContext);
 
+  const { handleMarkAsRead, handleWishList } = useContext(BookContext);
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
           {/* Left Side - Profile */}
           <div className="lg:col-span-5">
             <div className="bg-white rounded-3xl p-8 shadow-sm">
-
               {/* Profile Picture */}
               <div className="flex justify-center mb-6">
                 <img
@@ -84,15 +76,15 @@ const {handleMarkAsRead, handleWishList} = useContext(BookContext);
               <div className="space-y-3">
                 <button className="w-full py-3 border border-gray-300 rounded-2xl hover:bg-gray-50 flex items-center justify-center gap-2">
                   <MdOutlineSnooze />
-                    Snooze 2 Weeks
+                  Snooze 2 Weeks
                 </button>
                 <button className="w-full py-3 border border-gray-300 rounded-2xl hover:bg-gray-50 flex items-center justify-center gap-2">
                   <FaFileArchive />
-                    Archive
+                  Archive
                 </button>
                 <button className="w-full py-3 text-red-600 hover:bg-red-50 rounded-2xl flex items-center justify-center gap-2">
                   <MdAutoDelete />
-                    Delete
+                  Delete
                 </button>
               </div>
             </div>
@@ -100,11 +92,12 @@ const {handleMarkAsRead, handleWishList} = useContext(BookContext);
 
           {/* Right Side - Stats & Quick Actions */}
           <div className="lg:col-span-7 space-y-6">
-
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white rounded-3xl p-6 text-center">
-                <p className="text-4xl font-bold text-gray-800">{days_since_contact}</p>
+                <p className="text-4xl font-bold text-gray-800">
+                  {days_since_contact}
+                </p>
                 <p className="text-sm text-gray-500 mt-2">Days Since Contact</p>
               </div>
               <div className="bg-white rounded-3xl p-6 text-center">
@@ -112,24 +105,26 @@ const {handleMarkAsRead, handleWishList} = useContext(BookContext);
                 <p className="text-sm text-gray-500 mt-2">Goal (Days)</p>
               </div>
               <div className="bg-white rounded-3xl p-6 text-center">
-                <p className="text-xl font-semibold text-gray-800">{next_due_date}</p>
+                <p className="text-xl font-semibold text-gray-800">
+                  {next_due_date}
+                </p>
                 <p className="text-sm text-gray-500 mt-2">Next Due</p>
               </div>
             </div>
-
             {/* Relationship Goal */}
             <div className="bg-white rounded-3xl p-6">
               <div className="flex justify-between items-center">
                 <div>
                   <h3 className="font-semibold text-lg">Relationship Goal</h3>
-                  <p className="text-gray-600 mt-1">Connect every {goal} days</p>
+                  <p className="text-gray-600 mt-1">
+                    Connect every {goal} days
+                  </p>
                 </div>
                 <button className="px-6 py-2 border border-gray-300 rounded-2xl text-sm hover:bg-gray-50">
                   Edit
                 </button>
               </div>
             </div>
-
             {/* Quick Check-In */}
             <div className="bg-white rounded-3xl p-6">
               <h3 className="font-semibold text-lg mb-5">Quick Check-In</h3>
@@ -148,7 +143,23 @@ const {handleMarkAsRead, handleWishList} = useContext(BookContext);
                 </button>
               </div>
             </div>
-
+            <div className="flex items-center gap-2">
+              <button
+                className="btn"
+                onClick={() => handleMarkAsRead(expectedBook)}
+              >
+                Mark as Read
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  handleWishList(expectedBook);
+                }}
+              >
+                Add to Wishlist
+              </button>
+            </div>
+            ;
           </div>
         </div>
       </div>

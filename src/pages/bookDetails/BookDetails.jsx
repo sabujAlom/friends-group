@@ -3,13 +3,15 @@
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { BookContext } from "../../context/BookContext";
-import { MdAutoDelete, MdOutlineSnooze } from "react-icons/md";
+import { MdAutoDelete, MdOutlineSnooze, MdOutlineTextsms } from "react-icons/md";
 import { FaFileArchive } from "react-icons/fa";
+import { IoVideocamOutline } from "react-icons/io5";
+import { BsTelephonePlus } from "react-icons/bs";
 
 // const booksPromise = fetch("/booksData.json").then((res) => res.json());
 
 const BookDetails = () => {
-  const { id: bookParamsId } = useParams();
+  const { id:bookParamsId } = useParams();
   // console.log(bookId, "bookId")
 
   // const books = use(booksPromise);
@@ -21,7 +23,7 @@ const BookDetails = () => {
   const {
     id,
     name,
-    author,
+    
     picture,
     email,
     days_since_contact,
@@ -133,15 +135,15 @@ const {handleMarkAsRead, handleWishList} = useContext(BookContext);
               <h3 className="font-semibold text-lg mb-5">Quick Check-In</h3>
               <div className="grid grid-cols-3 gap-4">
                 <button className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
-                  📞
+                  <BsTelephonePlus />
                   <span className="mt-3 text-sm font-medium">Call</span>
                 </button>
                 <button className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
-                  💬
+                  <MdOutlineTextsms />
                   <span className="mt-3 text-sm font-medium">Text</span>
                 </button>
                 <button className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
-                  📹
+                  <IoVideocamOutline />
                   <span className="mt-3 text-sm font-medium">Video</span>
                 </button>
               </div>

@@ -1,4 +1,7 @@
 import React from "react";
+import { IoMdTime } from "react-icons/io";
+import { IoHomeOutline } from "react-icons/io5";
+import { TfiStatsUp } from "react-icons/tfi";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
@@ -10,7 +13,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `font-semibold mr-1 ${isActive ? "text-green-500 border border-green-500" : ""}`
           }
-        >
+        ><IoHomeOutline />
           Home
         </NavLink>
       </li>
@@ -20,7 +23,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `font-semibold mr-1 ${isActive ? " text-green-500 border border-green-500" : ""}`
           }
-        >
+        ><IoMdTime />
           Timeline
         </NavLink>
       </li>
@@ -30,7 +33,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `font-semibold mr-1 ${isActive ? "text-green-500 border border-green-500 " : ""}`
           }
-        >
+        ><TfiStatsUp />
           Stats
         </NavLink>
       </li>
@@ -38,7 +41,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-base-100 shadow-sm">
+    <nav className="bg-base-100 shadow-sm flex ">
       <div className="navbar  container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -68,7 +71,7 @@ const Navbar = () => {
           </div>
           <h2 className="font-bold  text-xl">KeenKeeper</h2>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
        

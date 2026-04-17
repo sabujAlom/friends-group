@@ -5,43 +5,21 @@ export const BookContext = createContext();
 
 const BookProvider = ({ children }) => {
   const [readList, setReadList] = useState([]);
-  const [wishList, setWishList] = useState([]);
-
-
+  
   const handleMarkAsRead = (currentBook) => {
     const isExistBook = readList.find(
-      (book) => book.bookId === currentBook.bookId,
+      (book) => book.id === currentBook.id,
     );
     if (isExistBook) {
-      toast.error("The book is already exist");
+      toast.error(`${currentBook.name} is already added to Timeline`);
     } else {
       setReadList([...readList, currentBook]);
-      toast.success(`${currentBook.bookName} is added to read list`);
-    }
-    console.log(currentBook, readList);
-  };
- 
-
-   const handleWishList = (currentBook) => {
-    const isExistInReadList = readList.find(
-        (book) => book.bookId === currentBook.bookId);
-        if(isExistInReadList){
-            toast.error("This book is already in read list");
-            return;
-        }
-
-    const isExistBook = wishList.find(
-      (book) => book.bookId === currentBook.bookId,
-    );
-    if (isExistBook) {
-      toast.error("The book is already exist");
-
-    } else {
-      setWishList([...wishList, currentBook]);
-      toast.success(`${currentBook.bookName} is added to wish list`);
+      toast.success(`${currentBook.name} is added to Timeline`);
     }
     
   };
+ 
+
 
 
 
@@ -49,9 +27,7 @@ const BookProvider = ({ children }) => {
     readList,
     setReadList,
     handleMarkAsRead,
-    wishList,
-    setWishList,
-    handleWishList
+   
   };
 
   return <BookContext.Provider value={data}>{children}</BookContext.Provider>;

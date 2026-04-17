@@ -31,9 +31,9 @@ const BookDetails = () => {
     goal,
     next_due_date,
   } = expectedBook;
-  //   console.log(expectedBook);
+  1
 
-  const { handleMarkAsRead, handleWishList } = useContext(BookContext);
+  const { handleMarkAsRead } = useContext(BookContext);
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -129,37 +129,26 @@ const BookDetails = () => {
             <div className="bg-white rounded-3xl p-6">
               <h3 className="font-semibold text-lg mb-5">Quick Check-In</h3>
               <div className="grid grid-cols-3 gap-4">
-                <button className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
+                <button onClick={() => handleMarkAsRead(expectedBook)} className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
                   <BsTelephonePlus />
-                  <span className="mt-3 text-sm font-medium">Call</span>
+                  <span className="mt-3 text-sm font-medium ">Call</span>
                 </button>
-                <button className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
+                <button onClick={() => handleMarkAsRead(expectedBook)} className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
                   <MdOutlineTextsms />
                   <span className="mt-3 text-sm font-medium">Text</span>
                 </button>
-                <button className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
+                <button onClick={() => handleMarkAsRead(expectedBook)} className="flex flex-col items-center py-8 border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
                   <IoVideocamOutline />
                   <span className="mt-3 text-sm font-medium">Video</span>
                 </button>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <button
-                className="btn"
-                onClick={() => handleMarkAsRead(expectedBook)}
-              >
-                Mark as Read
-              </button>
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  handleWishList(expectedBook);
-                }}
-              >
-                Add to Wishlist
-              </button>
-            </div>
-            ;
+
+
+            
+
+
+
           </div>
         </div>
       </div>

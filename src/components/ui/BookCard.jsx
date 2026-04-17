@@ -25,13 +25,13 @@ const BookCard = ({ book }) => {
           ))}
         </div>
         <h3 className="text-xl text-center">{book.days_since_contact}d ago</h3>
-        {/* <p className="font-semibold text-lg">{book.author}</p> */}
+      
 
         <div className="card-actions justify-center border-t border-dashed border-gray-300 pt-4 text-xl">
           <div className="flex gap-1 items-center btn btn-soft btn-warning rounded-4xl">
             {book.status}
           </div>
-          {/* <button className="btn btn-soft btn-warning">{book.}</button> */}
+          
         </div>
       </div>
     </Link>

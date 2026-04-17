@@ -7,7 +7,7 @@ import { BookContext } from "../../context/BookContext";
 // const booksPromise = fetch("/booksData.json").then((res) => res.json());
 
 const BookDetails = () => {
-  const { bookId: bookParamsId } = useParams();
+  const { id: bookParamsId } = useParams();
   // console.log(bookId, "bookId")
 
   // const books = use(booksPromise);

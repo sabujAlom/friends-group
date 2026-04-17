@@ -11,7 +11,7 @@ const ErrorPage = () => {
 
         {/* Title */}
         <h2 className="text-2xl md:text-3xl font-semibold mt-4">
-          Oops! Page not found 😢
+          Oops! Page not found 
         </h2>
 
         {/* Description */}

@@ -1,31 +1,41 @@
-import React from 'react';
-import { FaRegStar } from 'react-icons/fa';
-import { Link } from 'react-router';
+import React from "react";
+import { FaRegStar } from "react-icons/fa";
+import { Link } from "react-router";
 
-const BookCard = ({book}) => {
-    return (
-        <Link to={`/bookDetails/${book.bookId}`} className="card bg-base-100 shadow-lg">
-            <figure className="p-6 bg-base-200 ">
-              <img src={book.image} alt={book.bookName} className="h-[250px] rounded-xl" />
-            </figure>
-            <div className="card-body">
-              <div className="flex items-center gap-2">
-                {book.tags.map((tag , ind) => (
-                  <div key={ind} className="text-green-500 badge bg-green-100 font-bold">{tag}</div>
-                ))}
-              </div>
-              <h2 className="card-title font-bold text-2xl">
-                {book.bookName}
-              </h2>
-              <p className="font-semibold text-lg">{book.author}</p>
-              
-              <div className="card-actions justify-between border-t border-dashed border-gray-300 pt-4 text-xl">
-                <div className="font-semibold ">{book.category}</div>
-                <div className="flex gap-1 items-center">{book.rating}<FaRegStar /></div>
-              </div>
+const BookCard = ({ book }) => {
+  return (
+    <Link to={`/bookDetails/${book.id}`} className="card bg-base-100 shadow-lg">
+      <figure className="p-6 bg-base-200">
+        <img
+          src={book.picture}
+          alt={book.name}
+          className="h-[150px] rounded-full"
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className=" font-bold text-2xl text-center">{book.name}</h2>
+        <div className="flex justify-center items-center gap-2">
+          {book.tags.map((tag, ind) => (
+            <div
+              key={ind}
+              className="text-green-500 badge bg-green-100 font-bold"
+            >
+              {tag}
             </div>
-          </Link>
-    );
+          ))}
+        </div>
+        <h3 className="text-xl text-center">{book.days_since_contact}d ago</h3>
+        {/* <p className="font-semibold text-lg">{book.author}</p> */}
+
+        <div className="card-actions justify-center border-t border-dashed border-gray-300 pt-4 text-xl">
+          <div className="flex gap-1 items-center btn btn-soft btn-warning rounded-4xl">
+            {book.status}
+          </div>
+          {/* <button className="btn btn-soft btn-warning">{book.}</button> */}
+        </div>
+      </div>
+    </Link>
+  );
 };
 
 export default BookCard;

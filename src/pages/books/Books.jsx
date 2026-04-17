@@ -7,7 +7,7 @@ import ListedWishList from "../../components/listedBooks/ListedWishList";
 
 const Books = () => {
   const [sortingType, setSortingType] = useState("");
-  console.log(sortingType, "sortingType")
+ 
   return (
     <div className="container mx-auto">
       <div className="flex justify-center my-3">
